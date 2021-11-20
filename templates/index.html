@@ -95,7 +95,7 @@
           <label for="desc" class="form-label">Todo Description</label>
           <input type="text" class="form-control" id="desc" name="desc"/>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
       </form>
     </div>
     <!--Adding a table to display the todos-->
@@ -108,6 +108,7 @@
             <th scope="col">Ttle</th>
             <th scope="col">Description</th>
             <th scope="col">Time</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -117,6 +118,10 @@
             <td>{{todo.title}}</td>
             <td>{{todo.desc}}</td>
             <td>{{todo.date_created}}</td>
+            <td>
+                <a href="/delete/{{todo.sno}}" type="button" class="btn btn-outline-danger btn-sm mx-1">Delete</a>
+                <a href="/update/{{todo.sno}}" type="button" class="btn btn-outline-warning btn-sm mx-1">Update</a>
+            </td>
           </tr>
           {% endfor %}
         </tbody>

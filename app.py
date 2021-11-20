@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -38,11 +38,26 @@ def home_todos():
     # This render_template function takes the file from the templates folder and renders it
     return render_template('index.html', allTodo=allTodo)
 
+# Show the Todos
 @app.route('/show-todos')
 def show_todos():
     allTodo = Todo.query.all()
     print(allTodo)
     return "Returning all todos"
 
+# Update the Todos
+@app.route('/update')
+def update_todos():
+    allTodo = Todo.query.all()
+    print(allTodo)
+    return "Returning all todos"
+
+# Delete the Todos
+@app.route('/delete/<int:sno>')
+def delete_todos(sno):
+    todo = Todo.query.filter_by(sno=sno).first()
+    db.session.delete(todo)
+    db.session.commit()
+    return redirect("/todos")
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
