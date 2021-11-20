@@ -46,18 +46,32 @@ def show_todos():
     return "Returning all todos"
 
 # Update the Todos
-@app.route('/update')
-def update_todos():
-    allTodo = Todo.query.all()
-    print(allTodo)
-    return "Returning all todos"
+@app.route('/update/<int:sno>', methods=['POST', 'GET'])
+def update_todos(sno):
+    if request.method == 'POST':
+        title = request.form['title']
+        desc = request.form['desc']
+        todo = Todo.query.filter_by(sno=sno).first()
+        todo.title = title
+        todo.desc = desc
+        db.session.add(todo)
+        db.session.commit()
+        return redirect("/todos")
+    # First get the todo
+    todo = Todo.query.filter_by(sno=sno).first()
+    # Pass the todo details to update.html page, where we'll be updating the todo
+    return render_template('update.html', todo=todo)
 
 # Delete the Todos
 @app.route('/delete/<int:sno>')
 def delete_todos(sno):
+    # First get the todo
     todo = Todo.query.filter_by(sno=sno).first()
+    # Then delete the todo
     db.session.delete(todo)
+    # Perfom commit operation
     db.session.commit()
+    # Redirect the user to the home page
     return redirect("/todos")
 if __name__ == '__main__':
-    app.run(debug=True, port=8000)
+    app.run(debug=False, port=8000)
