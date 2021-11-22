@@ -31,7 +31,7 @@ Run commands on python terminal or anaconda terimial or any terminal you are usi
 ### Test :
 
 * Run `python app.py`.
-* A localhost Url will be look like this `http://127.0.0.1:5000/todos`.
+* A localhost Url will be look like this `http://127.0.0.1:8000/todos`.
 * Go to this Url.
 * Perform CRUD Operation on the app
 
