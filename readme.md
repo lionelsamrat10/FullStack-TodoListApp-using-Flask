@@ -1,6 +1,7 @@
 # Todo List App Using Flask
 
 ![Python 3.6](https://img.shields.io/badge/Python-3.7-brightgreen.svg)
+![MyTodo](https://raw.githubusercontent.com/lionelsamrat10/FullStack-TodoListApp-using-Flask/main/static/todo-app-samrat.PNG)
 
 A real time deployed web app using which you can manage your todos. You can view all your todos, create new todos, delete them when they are completed and also can update them if needed. Plesae ⭐ this repository if you found it useful.
 
