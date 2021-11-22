@@ -4,6 +4,15 @@
 
 A real time deployed web app using which you can manage your todos. You can view all your todos, create new todos, delete them when they are completed and also can update them if needed. Plesae ⭐ this repository if you found it useful.
 
+### Technologies Used :
+
+* `Python`
+* `Flask`
+* `HTML` 
+* `Jinja (Template Engine)`
+* `SQLite (For storing our todos)`
+* `SQLAlchemy (Object Relation Mapper or ORM Tool)`
+
 ### Installation :
 
 A good practice to start with a new project and use it, is to make a virtual enviornment for the particular project. Here is the steps for making virtual enviornment ::
